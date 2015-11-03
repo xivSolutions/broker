@@ -49,7 +49,7 @@ defmodule Broker do
 
   def fill_pool do
     Enum.map(1..5, fn(_n) ->
-      {:ok, pid} =  Postgrex.Connection.start_link(hostname: "localhost", database: "meebuss")
+      {:ok, pid} =  Postgrex.Connection.start_link(hostname: "localhost", database: "meebuss", username: "massive", password: "password")
       %Connection{pid: pid}
     end)
   end

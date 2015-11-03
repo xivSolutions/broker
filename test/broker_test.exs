@@ -9,6 +9,7 @@ defmodule BrokerTest do
   end
 
   test "the truth", %{pid: pid} do
-    assert 
+    x = Enum.map(1..10000, fn(n) -> Broker.execute("insert into people (first_name) values ('Name #{n}');") end)
+    assert 10000 = x.length
   end
 end
